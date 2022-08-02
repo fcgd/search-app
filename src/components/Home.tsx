@@ -8,8 +8,7 @@ const cartoons = '/images/cartoons.jpg';
 export const Home = () => {
 	return (
 		<div className='container flex flex-col m-auto my-20 px-10'>
-			<h1 className='text-5xl text-white text-center'>SEARCH APP</h1>
-			<h2 className='text-white text-center'>
+			<h2 className='text-3xl text-white text-center'>
 				Busca a los personajes de tus series favoritas!
 			</h2>
 			<div className='grid grid-cols-1 lg:grid-cols-2 my-20 gap-10 '>
