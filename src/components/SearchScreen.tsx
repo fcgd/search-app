@@ -8,12 +8,13 @@ export const SearchScreen = () => {
 	const [validPath, setValidPath] = useState(false);
 
 	useEffect(() => {
+		setValidPath(false);
 		const Paths = ['rickandmorty', 'simpsons', 'futurama', 'cartoons'];
 		const valid: boolean = Paths.includes(show);
 		setValidPath(valid);
 	}, []);
 
-	const [characters, setCharacters] = useState([]);
+	const [characters, setCharacters] = useState([] as any[]);
 	const [search, setSearch] = useState('');
 
 	const API_SAMPLE_URL = 'https://api.sampleapis.com/';
@@ -30,7 +31,7 @@ export const SearchScreen = () => {
 	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setSearch(e.target.value);
 	};
-	let results = [];
+	let results: any = [];
 	if (!search) {
 		results = characters;
 	} else {
