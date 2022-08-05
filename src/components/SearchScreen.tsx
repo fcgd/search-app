@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FuturamaCharacters } from './FuturamaCharacters';
 import { NotFound } from './NotFound';
 import { RnMCharacters } from './RnMCharacters';
 
@@ -10,9 +11,9 @@ export const SearchScreen = () => {
 	useEffect(() => {
 		setValidPath(false);
 		const Paths = ['rickandmorty', 'simpsons', 'futurama', 'cartoons'];
-		const valid: boolean = Paths.includes(show);
+		const valid = Paths.includes(show);
 		setValidPath(valid);
-	}, []);
+	}, [show]);
 
 	const [characters, setCharacters] = useState([] as any[]);
 	const [search, setSearch] = useState('');
@@ -31,21 +32,39 @@ export const SearchScreen = () => {
 	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setSearch(e.target.value);
 	};
+
 	let results: any = [];
+
 	if (!search) {
 		results = characters;
 	} else {
-		results = characters.filter(character => {
-			return character.name.toLowerCase().includes(search.toLowerCase());
-		});
+		if (show === 'rickandmorty') {
+			results = characters.filter(character => {
+				return character.name.toLowerCase().includes(search.toLowerCase());
+			});
+		} else if (show === 'futurama') {
+			results = characters.filter(character => {
+				const fullName = `${character.name.first} ${character.name.middle} ${character.name.last}`;
+				return fullName.toLowerCase().includes(search.toLowerCase());
+			});
+		} else if (show === 'simpsons') {
+			results = characters.filter(character => {
+				return character.name.toLowerCase().includes(search.toLowerCase());
+			});
+		} else if (show === 'cartoons') {
+			results = characters.filter(character => {
+				return character.name.toLowerCase().includes(search.toLowerCase());
+			});
+		}
 	}
+
 	const CharacterListFC = {
 		rickandmorty: <RnMCharacters characters={results} />,
+		futurama: <FuturamaCharacters characters={results} />,
 
 		// TODO crear lista de personajes para el resto de apis
 
 		// simpsons: <SimpsonsCharacters characters={results} />,
-		// futurama: <FuturamaCharacters characters={results} />,
 		// cartoons: <CartoonsCharacters characters={results} />,
 	};
 	return validPath ? (
