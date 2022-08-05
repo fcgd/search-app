@@ -15,7 +15,6 @@ export const RnMCharacters = ({ characters }) => {
 		Dead: 'red',
 		unknown: 'grey',
 	};
-
 	return (
 		<div className=' p-8 rounded-md w-full'>
 			<div className=' flex items-center justify-between pb-6'>
