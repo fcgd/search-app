@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+// TODO: Find solution to crashing App and remove reloadDocument from NavLinks
+
 export const Navbar = () => {
 	return (
 		<nav className='relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-900 mb-3'>
@@ -27,6 +29,10 @@ export const Navbar = () => {
 					<ul className='text-xl md:text-sm flex items-center flex-col md:flex-row list-none md:ml-auto'>
 						<li className='nav-item'>
 							<NavLink
+								reloadDocument
+								style={({ isActive }) => ({
+									color: isActive ? 'gray' : 'white',
+								})}
 								className='px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75'
 								to='/rickandmorty'
 							>
@@ -35,6 +41,10 @@ export const Navbar = () => {
 						</li>
 						<li className='nav-item'>
 							<NavLink
+								reloadDocument
+								style={({ isActive }) => ({
+									color: isActive ? 'gray' : 'white',
+								})}
 								className='px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75'
 								to='/simpsons'
 							>
@@ -43,6 +53,10 @@ export const Navbar = () => {
 						</li>
 						<li className='nav-item'>
 							<NavLink
+								reloadDocument
+								style={({ isActive }) => ({
+									color: isActive ? 'gray' : 'white',
+								})}
 								className='px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75'
 								to='/futurama'
 							>
@@ -51,6 +65,10 @@ export const Navbar = () => {
 						</li>
 						<li className='nav-item'>
 							<NavLink
+								reloadDocument
+								style={({ isActive }) => ({
+									color: isActive ? 'gray' : 'white',
+								})}
 								className='px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75'
 								to='/cartoons'
 							>
