@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CartoonsCards } from './CartoonsCards';
 import { FuturamaCharacters } from './FuturamaCharacters';
 import { NotFound } from './NotFound';
 import { RnMCharacters } from './RnMCharacters';
@@ -18,10 +19,16 @@ export const SearchScreen = () => {
 	const [characters, setCharacters] = useState([] as any[]);
 	const [search, setSearch] = useState('');
 
-	const API_SAMPLE_URL = 'https://api.sampleapis.com/';
+	const API = 'https://api.sampleapis.com/';
+	const URL = {
+		rickandmorty: 'rickandmorty/characters',
+		simpsons: 'simpsons/characters',
+		futurama: 'futurama/characters',
+		cartoons: 'cartoons/cartoons2D',
+	};
 
 	const showData = async (): Promise<any> => {
-		const response = await fetch(`${API_SAMPLE_URL + show}/characters`);
+		const response = await fetch(API + URL[show]);
 		const data = await response.json();
 		setCharacters(data);
 	};
@@ -53,7 +60,7 @@ export const SearchScreen = () => {
 			});
 		} else if (show === 'cartoons') {
 			results = characters.filter(character => {
-				return character.name.toLowerCase().includes(search.toLowerCase());
+				return character.title.toLowerCase().includes(search.toLowerCase());
 			});
 		}
 	}
@@ -61,11 +68,11 @@ export const SearchScreen = () => {
 	const CharacterListFC = {
 		rickandmorty: <RnMCharacters characters={results} />,
 		futurama: <FuturamaCharacters characters={results} />,
+		cartoons: <CartoonsCards characters={results} />,
 
 		// TODO crear lista de personajes para el resto de apis
 
 		// simpsons: <SimpsonsCharacters characters={results} />,
-		// cartoons: <CartoonsCharacters characters={results} />,
 	};
 	return validPath ? (
 		<div className='flex flex-col items-center w-full gap-3 my-10'>
