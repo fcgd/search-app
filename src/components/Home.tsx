@@ -9,7 +9,7 @@ export const Home = () => {
 	return (
 		<div className='container flex flex-col m-auto my-20 px-10'>
 			<h2 className='text-3xl text-white text-center'>
-				Busca a los personajes de tus series favoritas!
+				Search your favorite characters and TV Shows
 			</h2>
 			<div className='grid grid-cols-1 lg:grid-cols-2 my-20 gap-10 '>
 				<div className='w-11/12 aspect-[9/12] md:w-4/5 lg:w-full lg:h-full md:aspect-video object-fit m-auto'>
