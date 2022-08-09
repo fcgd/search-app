@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"phoenix": "rm -f package.json && rm -rf ./node_modules && npm install --no-fund --no-audit --no-package-lock",
+		"phoenix": "rm -rf package-lock.json ./node_modules && npm install --no-fund --no-audit",
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
