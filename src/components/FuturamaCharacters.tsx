@@ -21,7 +21,7 @@ interface Character {
 
 export const FuturamaCharacters = ({ characters }) => {
 	return (
-		<ul className='flex flex-col divide divide-y'>
+		<ul className='flex flex-col divide divide-y my-8'>
 			{characters.slice(0, 15).map((character: Character) => {
 				const { id, name, images, occupation, species, ...props } = character;
 
